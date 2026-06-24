@@ -45,6 +45,14 @@ class IncomeRepository {
     );
   }
 
+  Future<DailyIncomeRecord?> getLowestIncome() async {
+    final records = await getAll();
+    if (records.isEmpty) return null;
+    return records.reduce(
+      (a, b) => _computeGross(a) <= _computeGross(b) ? a : b,
+    );
+  }
+
   Future<int> getGrossIncomeForDateRange(DateTime start, DateTime end) async {
     final records = await getByDateRange(start, end);
     var total = 0;

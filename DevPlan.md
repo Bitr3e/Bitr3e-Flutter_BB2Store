@@ -30,25 +30,25 @@
 # Dashboard Module
 
 ### Dashboard UI
-- [ ] Create dashboard screen
-- [ ] Display today's gross income
-- [ ] Display today's cash-out
-- [ ] Display daily fund deduction (₱300)
-- [ ] Display today's net income
+- [x] Create dashboard screen
+- [x] Display today's gross income
+- [x] Display today's cash-out
+- [x] Display daily fund deduction (₱300)
+- [x] Display today's net income
 
 ### Dashboard Analytics
-- [ ] Display highest income recorded
-- [ ] Display lowest income recorded
-- [ ] Display previous day's income
-- [ ] Display current week's income
-- [ ] Display current month's income
-- [ ] Display current year's income
+- [x] Display highest income recorded
+- [x] Display lowest income recorded
+- [x] Display previous day's income
+- [x] Display current week's income
+- [x] Display current month's income
+- [x] Display current year's income
 
 ### Dashboard Cards
-- [ ] Highest Income Card
-- [ ] Lowest Income Card
-- [ ] Yesterday's Income Card
-- [ ] Today's Net Income Card
+- [x] Highest Income Card
+- [x] Lowest Income Card
+- [x] Yesterday's Income Card
+- [x] Today's Net Income Card
 
 ---
 
