@@ -2,28 +2,28 @@
 ## Flutter & Dart Development Checklist
 
 ### Phase 1: Project Setup
-- [ ] Create Flutter project
-- [ ] Configure project structure (MVC/Clean Architecture)
-- [ ] Set up Git repository
-- [ ] Configure local database (SQLite using Drift/Sqflite)
-- [ ] Configure state management (Provider/Riverpod/Bloc)
-- [ ] Create app theme and branding for BB2 Store
+- [x] Create Flutter project
+- [x] Configure project structure (Clean Architecture)
+- [x] Set up Git repository
+- [x] Configure local database (SQLite using Drift)
+- [x] Configure state management (Riverpod)
+- [x] Create app theme and branding for BB2 Store
 
 ---
 
 # Core Data Models
 
 ### Cash Income Model
-- [ ] Create denomination model
-- [ ] Create daily cash record model
-- [ ] Create cash-out model
-- [ ] Create net income model
+- [x] Create denomination model
+- [x] Create daily cash record model
+- [x] Create cash-out model
+- [x] Create net income model
 
 ### Database Tables
-- [ ] Daily Income Table
-- [ ] Cash-Out Table
-- [ ] Daily Summary Table
-- [ ] Historical Records Table
+- [x] Daily Income Table
+- [x] Cash-Out Table
+- [x] Daily Summary Table (computed via repository)
+- [x] Historical Records Table (queryable via repository date-range methods)
 
 ---
 
