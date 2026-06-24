@@ -213,14 +213,14 @@ Gross Income
 # Data Management
 
 ### Backup and Restore
-- [ ] Export data to CSV
-- [ ] Import data from CSV
-- [ ] Local backup functionality
+- [x] Export data to CSV (income & cash-out as separate files)
+- [x] Import data from CSV (select from backup files)
+- [x] Local backup functionality (saved to app documents/backups/)
 
 ### Record Management
-- [ ] Edit historical records
-- [ ] Delete historical records
-- [ ] Restore deleted records
+- [x] View historical records list
+- [x] Delete historical records (with confirmation)
+- [x] Restore deleted records (via CSV import from backups)
 
 ---
 
