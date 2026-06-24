@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
 import '../../domain/providers/dashboard_provider.dart';
+import '../net_income/net_income_screen.dart';
 import 'models/dashboard_data.dart';
 import 'widgets/stat_card.dart';
 
@@ -124,6 +125,11 @@ class _DashboardContent extends StatelessWidget {
                 amount: data.todayNetIncome,
                 icon: Icons.savings,
                 iconColor: data.todayNetIncome >= 0 ? Colors.green : Colors.red,
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const NetIncomeScreen(),
+                  ),
+                ),
               ),
             ),
           ],
@@ -174,6 +180,11 @@ class _DashboardContent extends StatelessWidget {
                 amount: data.todayNetIncome,
                 icon: Icons.account_balance_wallet,
                 iconColor: data.todayNetIncome >= 0 ? Colors.teal : Colors.red,
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const NetIncomeScreen(),
+                  ),
+                ),
               ),
             ),
           ],

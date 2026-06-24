@@ -9,6 +9,7 @@ class StatCard extends StatelessWidget {
   final Color? iconColor;
   final Color? backgroundColor;
   final bool isLoading;
+  final VoidCallback? onTap;
 
   const StatCard({
     super.key,
@@ -18,6 +19,7 @@ class StatCard extends StatelessWidget {
     this.iconColor,
     this.backgroundColor,
     this.isLoading = false,
+    this.onTap,
   });
 
   @override
@@ -27,7 +29,10 @@ class StatCard extends StatelessWidget {
 
     return Card(
       color: cardColor,
-      child: Padding(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,6 +68,7 @@ class StatCard extends StatelessWidget {
               ),
           ],
         ),
+      ),
       ),
     );
   }

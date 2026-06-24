@@ -102,7 +102,7 @@
 # Net Income Calculation Engine
 
 ### Formula Implementation
-- [ ] Calculate Gross Income
+- [x] Calculate Gross Income (in repositories & dashboard)
 
 ```text
 Gross Income =
@@ -113,19 +113,19 @@ Gross Income =
 (₱1000 × qty)
 ```
 
-- [ ] Calculate Total Cash-Out
+- [x] Calculate Total Cash-Out (in CashOutRepository)
 
 ```text
 Total Cash-Out = Sum of all cash-out entries
 ```
 
-- [ ] Deduct Daily Fund
+- [x] Deduct Daily Fund (constant ₱300)
 
 ```text
 Daily Fund = ₱300
 ```
 
-- [ ] Calculate Net Income
+- [x] Calculate Net Income (in repositories & dashboard)
 
 ```text
 Net Income =
@@ -135,10 +135,10 @@ Gross Income
 ```
 
 ### Summary Display
-- [ ] Show Gross Income
-- [ ] Show Total Cash-Out
-- [ ] Show Daily Fund Deduction
-- [ ] Show Net Income
+- [x] Show Gross Income (with per-denomination breakdown)
+- [x] Show Total Cash-Out (with individual entry list)
+- [x] Show Daily Fund Deduction (₱300.00)
+- [x] Show Net Income (with color-coded result)
 
 ---
 
