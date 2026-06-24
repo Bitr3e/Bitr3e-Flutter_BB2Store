@@ -1,5 +1,5 @@
 name: bb2store_cash_inventory
-description: "BB2 Store Cash Income Monitoring System"
+description: "BB2 Store Cash Income Monitoring System — daily income recording, cash-out tracking, net income calculations, analytics, and graphs."
 publish_to: 'none'
 version: 1.0.0+1
 

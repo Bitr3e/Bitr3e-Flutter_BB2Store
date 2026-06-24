@@ -1,0 +1,3 @@
+-keep class com.bb2store.cash_inventory.** { *; }
+-keep class * extends androidx.room.RoomDatabase
+-dontwarn com.bb2store.cash_inventory.**

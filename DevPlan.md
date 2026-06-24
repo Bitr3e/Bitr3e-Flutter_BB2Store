@@ -259,11 +259,12 @@ Gross Income
 
 # Deployment
 
-- [ ] Optimize app performance
-- [ ] Generate release APK
-- [ ] Generate Android App Bundle
-- [ ] Test on physical Android device
-- [ ] Final production release
+- [x] Release signing keystore (PKCS12, 2048-bit RSA, 10yr validity)
+- [x] Release APK (55.5MB) — `build/app/outputs/flutter-apk/app-release.apk`
+- [x] Android App Bundle (43.5MB) — `build/app/outputs/bundle/release/app-release.aab`
+- [x] App name: "BB2 Store", package: `com.bb2store.cash_inventory`
+- [x] Minification/proguard enabled
+- [x] Keystore & key.properties in .gitignore
 
 ---
 
