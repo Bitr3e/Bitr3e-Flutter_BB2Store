@@ -5,6 +5,7 @@ import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
 import '../../domain/providers/dashboard_provider.dart';
 import '../analytics/analytics_screen.dart';
+import '../graphs/graphs_screen.dart';
 import '../net_income/net_income_screen.dart';
 import 'models/dashboard_data.dart';
 import 'widgets/stat_card.dart';
@@ -91,6 +92,19 @@ class _DashboardContent extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             _buildPeriodGrid(context),
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const GraphsScreen(),
+                  ),
+                ),
+                icon: const Icon(Icons.bar_chart),
+                label: const Text('View Graphs & Charts'),
+              ),
+            ),
           ],
         ),
       ),

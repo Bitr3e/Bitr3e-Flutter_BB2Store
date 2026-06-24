@@ -18,6 +18,7 @@ dependencies:
   path: ^1.9.0
   intl: ^0.20.2
   json_annotation: ^4.9.0
+  fl_chart: ^0.70.2
 
 dev_dependencies:
   flutter_test:

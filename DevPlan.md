@@ -192,21 +192,21 @@ Gross Income
 # Graph and Visualization Module
 
 ### Daily Income Graph
-- [ ] Line chart for daily net income
+- [x] Line chart for daily net income (last 30 days)
 
 ### Weekly Summary Graph
-- [ ] Bar chart for weekly income
+- [x] Bar chart for weekly income (last 12 weeks)
 
 ### Monthly Summary Graph
-- [ ] Bar chart for monthly income
+- [x] Bar chart for monthly income with Cash-Out overlay
 
 ### Yearly Summary Graph
-- [ ] Line chart for yearly income trends
+- [x] Line chart for yearly income trends
 
 ### Dashboard Graph Widget
-- [ ] Income trend graph
-- [ ] Highest vs Lowest income comparison
-- [ ] Cash-In vs Cash-Out comparison
+- [x] Income trend graph (daily line chart)
+- [x] Highest vs Lowest income comparison (via Analytics)
+- [x] Cash-In vs Cash-Out comparison bar chart (latest day)
 
 ---
 
