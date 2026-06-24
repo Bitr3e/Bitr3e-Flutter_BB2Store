@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
 import '../../domain/providers/dashboard_provider.dart';
+import '../analytics/analytics_screen.dart';
 import '../net_income/net_income_screen.dart';
 import 'models/dashboard_data.dart';
 import 'widgets/stat_card.dart';
@@ -59,11 +60,25 @@ class _DashboardContent extends StatelessWidget {
             const SizedBox(height: 12),
             _buildTodaySummary(context),
             const SizedBox(height: 24),
-            Text(
-              'Analytics',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Analytics',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                TextButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const AnalyticsScreen(),
+                    ),
                   ),
+                  icon: const Icon(Icons.open_in_new, size: 16),
+                  label: const Text('View All'),
+                ),
+              ],
             ),
             const SizedBox(height: 12),
             _buildAnalyticsGrid(context),

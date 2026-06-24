@@ -176,16 +176,16 @@ Gross Income
 # Analytics Module
 
 ### Income Statistics
-- [ ] Calculate highest income day
-- [ ] Calculate lowest income day
-- [ ] Calculate average daily income
-- [ ] Calculate average monthly income
-- [ ] Calculate yearly total income
+- [x] Calculate highest income day
+- [x] Calculate lowest income day
+- [x] Calculate average daily income
+- [x] Calculate average monthly income
+- [x] Calculate yearly total income
 
 ### Comparative Analytics
-- [ ] Compare today vs yesterday
-- [ ] Compare this week vs last week
-- [ ] Compare this month vs last month
+- [x] Compare today vs yesterday (with ₱ and % change)
+- [x] Compare this week vs last week (with ₱ and % change)
+- [x] Compare this month vs last month (with ₱ and % change)
 
 ---
 
