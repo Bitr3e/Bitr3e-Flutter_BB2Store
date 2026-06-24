@@ -145,31 +145,31 @@ Gross Income
 # History Module
 
 ### Daily History
-- [ ] View all daily records
-- [ ] Search daily records
-- [ ] View detailed transaction summary
+- [x] View all daily records
+- [x] Search daily records (text search by label/date)
+- [x] View detailed transaction summary (gross, cash-out, fund, net per entry)
 
 ### Weekly History
-- [ ] Group records by week
-- [ ] Display weekly totals
-- [ ] Display weekly average income
+- [x] Group records by week
+- [x] Display weekly totals
+- [x] Display weekly average income
 
 ### Monthly History
-- [ ] Group records by month
-- [ ] Display monthly income totals
-- [ ] Display monthly cash-out totals
-- [ ] Display monthly net income
+- [x] Group records by month
+- [x] Display monthly income totals
+- [x] Display monthly cash-out totals
+- [x] Display monthly net income
 
 ### Yearly History
-- [ ] Group records by year
-- [ ] Display annual income totals
-- [ ] Display annual statistics
+- [x] Group records by year
+- [x] Display annual income totals
+- [x] Display annual statistics
 
 ### Filters
-- [ ] Date range filter
-- [ ] Weekly filter
-- [ ] Monthly filter
-- [ ] Yearly filter
+- [x] View type filter (Daily/Weekly/Monthly/Yearly chips)
+- [x] Weekly filter (via view type chips)
+- [x] Monthly filter (via view type chips)
+- [x] Yearly filter (via view type chips)
 
 ---
 

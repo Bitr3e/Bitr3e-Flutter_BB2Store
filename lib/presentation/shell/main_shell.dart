@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../cash_out/cash_out_screen.dart';
 import '../dashboard/dashboard_screen.dart';
+import '../history/history_screen.dart';
 import '../income_recording/income_recording_screen.dart';
 
 class MainShell extends StatefulWidget {
@@ -18,11 +19,7 @@ class _MainShellState extends State<MainShell> {
     DashboardScreen(),
     IncomeRecordingScreen(),
     CashOutScreen(),
-    Scaffold(
-      body: Center(
-        child: Text('History', style: TextStyle(fontSize: 24)),
-      ),
-    ),
+    HistoryScreen(),
   ];
 
   @override
