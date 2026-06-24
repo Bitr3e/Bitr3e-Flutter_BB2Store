@@ -81,21 +81,21 @@
 # Cash-Out Module
 
 ### Cash-Out Management
-- [ ] Add cash-out entry
-- [ ] Edit cash-out entry
-- [ ] Delete cash-out entry
-- [ ] Add cash-out description
-- [ ] Record cash-out amount
+- [x] Add cash-out entry
+- [x] Edit cash-out entry
+- [x] Delete cash-out entry
+- [x] Add cash-out description
+- [x] Record cash-out amount
 
 ### Cash-Out Categories
-- [ ] Supplier payment
-- [ ] Personal withdrawal
-- [ ] Store expenses
-- [ ] Miscellaneous expenses
+- [x] Supplier payment
+- [x] Personal withdrawal
+- [x] Store expenses
+- [x] Miscellaneous expenses
 
 ### Calculations
-- [ ] Sum all cash-outs
-- [ ] Display total cash-outs
+- [x] Sum all cash-outs
+- [x] Display total cash-outs
 
 ---
 

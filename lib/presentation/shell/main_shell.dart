@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../cash_out/cash_out_screen.dart';
 import '../dashboard/dashboard_screen.dart';
 import '../income_recording/income_recording_screen.dart';
 
@@ -16,11 +17,7 @@ class _MainShellState extends State<MainShell> {
   final _screens = const [
     DashboardScreen(),
     IncomeRecordingScreen(),
-    Scaffold(
-      body: Center(
-        child: Text('Cash-Out', style: TextStyle(fontSize: 24)),
-      ),
-    ),
+    CashOutScreen(),
     Scaffold(
       body: Center(
         child: Text('History', style: TextStyle(fontSize: 24)),
