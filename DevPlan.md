@@ -270,13 +270,16 @@ Gross Income
 
 # Version 1.0 Completion Criteria
 
-- [ ] Daily cash income recording works
-- [ ] Automatic denomination calculations work
-- [ ] Cash-out tracking works
-- [ ] ₱300 daily fund deduction works
-- [ ] Net income calculation is accurate
-- [ ] Daily, weekly, monthly, and yearly history works
-- [ ] Dashboard analytics works
-- [ ] Graphs and summaries work
-- [ ] Data persists locally
-- [ ] Application ready for BB2 Store operations
+- [x] Daily cash income recording works
+- [x] Automatic denomination calculations work
+- [x] Cash-out tracking works
+- [x] ₱300 daily fund deduction works (configurable via Settings)
+- [x] Net income calculation is accurate
+- [x] Daily, weekly, monthly, and yearly history works
+- [x] Dashboard analytics works
+- [x] Graphs and summaries work
+- [x] Data persists locally (SQLite via Drift)
+- [x] CSV import/export for backup and restore
+- [x] Theme mode (light/dark/system) and currency symbol configurable
+- [x] 65 automated tests passing
+- [x] Release APK + App Bundle signed and built
