@@ -5,6 +5,7 @@ import '../../../data/database/app_database.dart';
 import '../../../data/repositories/cash_out_repository.dart';
 import '../../../data/repositories/income_repository.dart';
 import '../../../domain/providers/repository_providers.dart';
+import '../../settings/providers/settings_provider.dart';
 
 class DenominationBreakdown {
   final int value;
@@ -88,7 +89,7 @@ class NetIncomeNotifier extends StateNotifier<AsyncValue<NetIncomeData>> {
         : 0;
 
     final totalCashOut = cashOuts.fold(0, (sum, e) => sum + e.amount);
-    const fund = AppConstants.dailyFundDeduction;
+    final fund = _ref.read(settingsNotifierProvider).dailyFundAmount;
     final net = gross - totalCashOut - fund;
 
     return NetIncomeData(

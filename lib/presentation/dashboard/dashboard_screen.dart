@@ -8,6 +8,7 @@ import '../analytics/analytics_screen.dart';
 import '../data_management/data_management_screen.dart';
 import '../graphs/graphs_screen.dart';
 import '../net_income/net_income_screen.dart';
+import '../settings/settings_screen.dart';
 import 'models/dashboard_data.dart';
 import 'widgets/stat_card.dart';
 
@@ -117,6 +118,19 @@ class _DashboardContent extends StatelessWidget {
                 ),
                 icon: const Icon(Icons.storage),
                 label: const Text('Data Management'),
+              ),
+            ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const SettingsScreen(),
+                  ),
+                ),
+                icon: const Icon(Icons.settings),
+                label: const Text('Settings'),
               ),
             ),
           ],

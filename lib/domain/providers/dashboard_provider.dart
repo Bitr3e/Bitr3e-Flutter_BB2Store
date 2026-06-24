@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/database/app_database.dart';
 import '../../presentation/dashboard/models/dashboard_data.dart';
+import '../../presentation/settings/providers/settings_provider.dart';
 import 'repository_providers.dart';
 
 DateTime _dateOnly(DateTime dt) => DateTime(dt.year, dt.month, dt.day);
@@ -81,7 +82,7 @@ class DashboardNotifier extends AutoDisposeAsyncNotifier<DashboardData> {
 
     final totalCashOut = await todayCashOut;
 
-    const dailyFund = 300;
+    final dailyFund = ref.read(settingsNotifierProvider).dailyFundAmount;
     final netIncome = todayGross - totalCashOut - dailyFund;
 
     return DashboardData(

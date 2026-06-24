@@ -227,10 +227,10 @@ Gross Income
 # Settings Module
 
 ### App Settings
-- [ ] Change daily fund amount
-- [ ] Configure currency format
-- [ ] Dark mode support
-- [ ] Backup settings
+- [x] Change daily fund amount (persisted via SharedPreferences)
+- [x] Configure currency symbol
+- [x] Theme mode selector (System / Light / Dark)
+- [x] Daily fund amount used in dashboard & net income calculations
 
 ---
 
