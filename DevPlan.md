@@ -55,26 +55,26 @@
 # Daily Income Recording Module
 
 ### Cash Denomination Inputs
-- [ ] ₱1 denomination field
-- [ ] ₱5 denomination field
-- [ ] ₱10 denomination field
-- [ ] ₱20 denomination field
-- [ ] ₱50 denomination field
-- [ ] ₱100 denomination field
-- [ ] ₱200 denomination field
-- [ ] ₱500 denomination field
-- [ ] ₱1000 denomination field
+- [x] ₱1 denomination field
+- [x] ₱5 denomination field
+- [x] ₱10 denomination field
+- [x] ₱20 denomination field
+- [x] ₱50 denomination field
+- [x] ₱100 denomination field
+- [x] ₱200 denomination field
+- [x] ₱500 denomination field
+- [x] ₱1000 denomination field
 
 ### Automatic Calculations
-- [ ] Calculate subtotal per denomination
-- [ ] Calculate total cash collected
-- [ ] Display gross income preview
-- [ ] Auto-update calculations while typing
+- [x] Calculate subtotal per denomination
+- [x] Calculate total cash collected
+- [x] Display gross income preview
+- [x] Auto-update calculations while typing
 
 ### Validation
-- [ ] Prevent negative values
-- [ ] Prevent empty submissions
-- [ ] Validate numeric input
+- [x] Prevent negative values
+- [x] Prevent empty submissions
+- [x] Validate numeric input
 
 ---
 
