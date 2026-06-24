@@ -85,9 +85,12 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
   CashOutRepository get _cashOutRepo => _ref.read(cashOutRepositoryProvider);
 
   Future<void> _load() async {
+    if (!mounted) return;
     state = state.copyWith(isLoading: true);
     final income = await _incomeRepo.getAll();
+    if (!mounted) return;
     final cashOuts = await _cashOutRepo.getAll();
+    if (!mounted) return;
     state = state.copyWith(
       allIncome: income,
       allCashOuts: cashOuts,

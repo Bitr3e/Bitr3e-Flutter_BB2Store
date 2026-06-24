@@ -54,6 +54,7 @@ class CashOutNotifier extends StateNotifier<CashOutState> {
   CashOutRepository get _repo => _ref.read(cashOutRepositoryProvider);
 
   Future<void> _load() async {
+    if (!mounted) return;
     state = state.copyWith(isLoading: true);
     final dateOnly = DateTime(
       state.selectedDate.year,
@@ -61,6 +62,7 @@ class CashOutNotifier extends StateNotifier<CashOutState> {
       state.selectedDate.day,
     );
     final entries = await _repo.getByDate(dateOnly);
+    if (!mounted) return;
     state = state.copyWith(entries: entries, isLoading: false);
   }
 

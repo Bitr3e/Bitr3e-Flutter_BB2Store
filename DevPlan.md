@@ -236,19 +236,24 @@ Gross Income
 
 # Testing
 
-### Functional Testing
-- [ ] Test denomination calculations
-- [ ] Test cash-out calculations
-- [ ] Test net income calculations
-- [ ] Test history grouping
-- [ ] Test dashboard analytics
-- [ ] Test graph rendering
+### Data Model Tests (24 tests)
+- [x] DailyIncome — grossIncome calculation, JSON round-trip, defaults, large values
+- [x] CashOut — category names, required/optional fields, JSON round-trip
+- [x] Denomination — subtotal calculation, quantity defaults, JSON round-trip
+- [x] DailySummary — net income (positive/negative), JSON round-trip
 
-### Edge Cases
-- [ ] Zero income scenario
-- [ ] Large income values
-- [ ] Multiple cash-out entries
-- [ ] Missing historical records
+### Service & Utility Tests (17 tests)
+- [x] CsvService — export income/cash-out with headers, import parsing, malformed rows
+- [x] CurrencyFormatter — format with ₱ and decimals, compact (K/M) formatting
+
+### Provider Tests (24 tests)
+- [x] IncomeRecordingNotifier — quantities, grossIncome, save/replace
+- [x] CashOutNotifier — add/update/delete entries, totalCashOut
+- [x] HistoryNotifier — daily/weekly/monthly/yearly grouping, search filtering
+
+### Database Integration
+- [x] Drift in-memory database used in provider tests for real SQL queries
+- [x] Seed helpers for test data setup
 
 ---
 
