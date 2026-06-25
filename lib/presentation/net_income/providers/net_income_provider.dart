@@ -90,7 +90,7 @@ class NetIncomeNotifier extends StateNotifier<AsyncValue<NetIncomeData>> {
 
     final totalCashOut = cashOuts.fold(0, (sum, e) => sum + e.amount);
     final fund = _ref.read(settingsNotifierProvider).dailyFundAmount;
-    final net = gross - totalCashOut - fund;
+    final net = gross + totalCashOut - fund;
 
     return NetIncomeData(
       date: dateOnly,

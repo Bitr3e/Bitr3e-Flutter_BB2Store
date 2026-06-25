@@ -1,4 +1,4 @@
-package com.example.bb2store_cash_inventory
+package com.bb2store.cash_inventory
 
 import io.flutter.embedding.android.FlutterActivity
 

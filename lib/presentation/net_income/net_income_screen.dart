@@ -137,7 +137,7 @@ class NetIncomeScreen extends ConsumerWidget {
             _formulaRow(
               context,
               'Total Cash-Out',
-              '- ${CurrencyFormatter.format(data.totalCashOut)}',
+              '+ ${CurrencyFormatter.format(data.totalCashOut)}',
               theme.colorScheme.error,
             ),
             _formulaRow(

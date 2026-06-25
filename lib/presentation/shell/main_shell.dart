@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../cash_out/cash_out_screen.dart';
 import '../dashboard/dashboard_screen.dart';
 import '../history/history_screen.dart';
 import '../income_recording/income_recording_screen.dart';
@@ -18,7 +17,6 @@ class _MainShellState extends State<MainShell> {
   final _screens = const [
     DashboardScreen(),
     IncomeRecordingScreen(),
-    CashOutScreen(),
     HistoryScreen(),
   ];
 
@@ -44,11 +42,6 @@ class _MainShellState extends State<MainShell> {
             icon: Icon(Icons.payments_outlined),
             selectedIcon: Icon(Icons.payments),
             label: 'Income',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.money_off_outlined),
-            selectedIcon: Icon(Icons.money_off),
-            label: 'Cash-Out',
           ),
           NavigationDestination(
             icon: Icon(Icons.history_outlined),

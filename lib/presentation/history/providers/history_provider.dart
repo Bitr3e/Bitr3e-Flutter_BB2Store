@@ -154,7 +154,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
       final gross = _computeGross(record);
       final cashOutTotal = dayCashOuts.fold(0, (sum, c) => sum + c.amount);
       const fund = 300;
-      final net = gross - cashOutTotal - fund;
+      final net = gross + cashOutTotal - fund;
       final months = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
@@ -195,7 +195,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
       final gross = records.fold(0, (sum, r) => sum + _computeGross(r));
       final cashOutTotal = cOuts.fold(0, (sum, c) => sum + c.amount);
       final fund = 300 * records.length;
-      final net = gross - cashOutTotal - fund;
+      final net = gross + cashOutTotal - fund;
       final avg = records.isNotEmpty ? gross / records.length : 0.0;
 
       final parts = entry.key.split('-');
@@ -248,7 +248,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
       final gross = records.fold(0, (sum, r) => sum + _computeGross(r));
       final cashOutTotal = cOuts.fold(0, (sum, c) => sum + c.amount);
       final fund = 300 * records.length;
-      final net = gross - cashOutTotal - fund;
+      final net = gross + cashOutTotal - fund;
       final avg = records.isNotEmpty ? gross / records.length : 0.0;
 
       final parts = entry.key.split('-');
@@ -288,7 +288,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
       final gross = records.fold(0, (sum, r) => sum + _computeGross(r));
       final cashOutTotal = cOuts.fold(0, (sum, c) => sum + c.amount);
       final fund = 300 * records.length;
-      final net = gross - cashOutTotal - fund;
+      final net = gross + cashOutTotal - fund;
       final avg = records.isNotEmpty ? gross / records.length : 0.0;
 
       return HistoryGroup(

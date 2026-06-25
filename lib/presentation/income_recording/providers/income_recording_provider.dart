@@ -3,8 +3,12 @@ import 'package:drift/drift.dart' hide Column;
 
 import '../../../core/constants/app_constants.dart';
 import '../../../data/database/app_database.dart';
-import '../../../domain/providers/repository_providers.dart';
+import '../../../data/repositories/cash_out_repository.dart';
 import '../../../data/repositories/income_repository.dart';
+import '../../../domain/providers/repository_providers.dart';
+import '../../../domain/providers/dashboard_provider.dart';
+import '../../history/providers/history_provider.dart';
+import '../../settings/providers/settings_provider.dart';
 
 class IncomeRecordingState {
   final Map<int, int> quantities;
@@ -12,6 +16,9 @@ class IncomeRecordingState {
   final bool isLoaded;
   final int? existingId;
   final String? errorMessage;
+  final List<CashOutEntry> todayCashOuts;
+  final int dailyFundAmount;
+  final bool isLocked;
 
   const IncomeRecordingState({
     required this.quantities,
@@ -19,6 +26,9 @@ class IncomeRecordingState {
     this.isLoaded = false,
     this.existingId,
     this.errorMessage,
+    this.todayCashOuts = const [],
+    this.dailyFundAmount = 300,
+    this.isLocked = false,
   });
 
   int get grossIncome {
@@ -27,6 +37,18 @@ class IncomeRecordingState {
       total += entry.key * entry.value;
     }
     return total;
+  }
+
+  int get totalCashOut {
+    var total = 0;
+    for (final e in todayCashOuts) {
+      total += e.amount;
+    }
+    return total;
+  }
+
+  int get netIncome {
+    return grossIncome + totalCashOut - dailyFundAmount;
   }
 
   bool get isValid {
@@ -39,6 +61,9 @@ class IncomeRecordingState {
     bool? isLoaded,
     int? existingId,
     String? errorMessage,
+    List<CashOutEntry>? todayCashOuts,
+    int? dailyFundAmount,
+    bool? isLocked,
     bool clearError = false,
   }) {
     return IncomeRecordingState(
@@ -47,6 +72,9 @@ class IncomeRecordingState {
       isLoaded: isLoaded ?? this.isLoaded,
       existingId: existingId ?? this.existingId,
       errorMessage: clearError ? null : (errorMessage ?? this.errorMessage),
+      todayCashOuts: todayCashOuts ?? this.todayCashOuts,
+      dailyFundAmount: dailyFundAmount ?? this.dailyFundAmount,
+      isLocked: isLocked ?? this.isLocked,
     );
   }
 }
@@ -62,35 +90,37 @@ class IncomeRecordingNotifier extends Notifier<IncomeRecordingState> {
     );
   }
 
-  IncomeRepository get _repo => ref.read(incomeRepositoryProvider);
+  IncomeRepository get _incomeRepo => ref.read(incomeRepositoryProvider);
+  CashOutRepository get _cashOutRepo => ref.read(cashOutRepositoryProvider);
 
   Future<void> _loadToday() async {
     final today = DateTime.now();
     final dateOnly = DateTime(today.year, today.month, today.day);
-    final record = await _repo.getByDate(dateOnly);
+
+    final settings = ref.read(settingsNotifierProvider);
+    final record = await _incomeRepo.getByDate(dateOnly);
 
     if (record != null) {
       state = state.copyWith(
-        quantities: {
-          AppConstants.denominations[0]: record.p1,
-          AppConstants.denominations[1]: record.p5,
-          AppConstants.denominations[2]: record.p10,
-          AppConstants.denominations[3]: record.p20,
-          AppConstants.denominations[4]: record.p50,
-          AppConstants.denominations[5]: record.p100,
-          AppConstants.denominations[6]: record.p200,
-          AppConstants.denominations[7]: record.p500,
-          AppConstants.denominations[8]: record.p1000,
-        },
         isLoaded: true,
         existingId: record.id,
+        todayCashOuts: const [],
+        isLocked: true,
+        dailyFundAmount: settings.dailyFundAmount,
       );
     } else {
-      state = state.copyWith(isLoaded: true);
+      final cashOuts = await _cashOutRepo.getByDate(dateOnly);
+      state = state.copyWith(
+        todayCashOuts: cashOuts,
+        dailyFundAmount: settings.dailyFundAmount,
+        isLoaded: true,
+        isLocked: false,
+      );
     }
   }
 
   void updateQuantity(int denomination, int value) {
+    if (state.isLocked) return;
     if (value < 0) return;
     final newQuantities = Map<int, int>.from(state.quantities);
     newQuantities[denomination] = value;
@@ -124,8 +154,20 @@ class IncomeRecordingNotifier extends Notifier<IncomeRecordingState> {
         p1000: Value(q[1000] ?? 0),
       );
 
-      await _repo.saveDailyIncome(companion);
-      state = state.copyWith(isSaving: false);
+      await _incomeRepo.saveDailyIncome(companion);
+
+      state = state.copyWith(
+        isSaving: false,
+        quantities: {
+          for (final d in AppConstants.denominations) d: 0,
+        },
+        todayCashOuts: const [],
+        isLocked: true,
+      );
+
+      ref.invalidate(dashboardProvider);
+      ref.read(historyProvider.notifier).refresh();
+
       return true;
     } catch (e) {
       state = state.copyWith(
@@ -134,6 +176,18 @@ class IncomeRecordingNotifier extends Notifier<IncomeRecordingState> {
       );
       return false;
     }
+  }
+
+  Future<void> deleteCashOut(int id) async {
+    if (state.isLocked) return;
+    await _cashOutRepo.deleteCashOut(id);
+    await refresh();
+    ref.invalidate(dashboardProvider);
+    ref.read(historyProvider.notifier).refresh();
+  }
+
+  Future<void> refresh() async {
+    await _loadToday();
   }
 }
 

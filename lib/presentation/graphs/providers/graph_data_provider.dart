@@ -114,7 +114,7 @@ class GraphDataNotifier extends StateNotifier<AsyncValue<GraphData>> {
       return DailyChartPoint(
         date: date,
         gross: gross,
-        net: gross - cashOut - 300,
+        net: gross + cashOut - 300,
       );
     }).toList();
 
@@ -158,7 +158,7 @@ class GraphDataNotifier extends StateNotifier<AsyncValue<GraphData>> {
         final date = DateTime(r.date.year, r.date.month, r.date.day);
         return sum + (cashOutByDate[date] ?? 0);
       });
-      final net = gross - cashOut - (300 * records.length);
+      final net = gross + cashOut - (300 * records.length);
       return MonthlyChartPoint(
         label: monthNames[month - 1],
         month: month,

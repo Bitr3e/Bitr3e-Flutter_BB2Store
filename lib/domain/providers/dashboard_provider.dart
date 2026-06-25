@@ -83,7 +83,7 @@ class DashboardNotifier extends AutoDisposeAsyncNotifier<DashboardData> {
     final totalCashOut = await todayCashOut;
 
     final dailyFund = ref.read(settingsNotifierProvider).dailyFundAmount;
-    final netIncome = todayGross - totalCashOut - dailyFund;
+    final netIncome = todayGross + totalCashOut - dailyFund;
 
     return DashboardData(
       todayGrossIncome: todayGross,

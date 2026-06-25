@@ -7,12 +7,14 @@ class DenominationInputRow extends StatelessWidget {
   final int denomination;
   final int quantity;
   final ValueChanged<int> onChanged;
+  final bool enabled;
 
   const DenominationInputRow({
     super.key,
     required this.denomination,
     required this.quantity,
     required this.onChanged,
+    this.enabled = true,
   });
 
   @override
@@ -41,21 +43,22 @@ class DenominationInputRow extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   width: 100,
-                  child: TextField(
-                    key: ValueKey('denom_$denomination'),
-                    controller: TextEditingController(
-                      text: quantity > 0 ? quantity.toString() : '',
-                    )
-                      ..selection = TextSelection.fromPosition(
-                        TextPosition(
-                          offset: quantity > 0
-                              ? quantity.toString().length
-                              : 0,
+                    child: TextField(
+                      key: ValueKey('denom_$denomination'),
+                      controller: TextEditingController(
+                        text: quantity > 0 ? quantity.toString() : '',
+                      )
+                        ..selection = TextSelection.fromPosition(
+                          TextPosition(
+                            offset: quantity > 0
+                                ? quantity.toString().length
+                                : 0,
+                          ),
                         ),
-                      ),
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    decoration: InputDecoration(
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      enabled: enabled,
+                      decoration: InputDecoration(
                       hintText: '0',
                       isDense: true,
                       contentPadding: const EdgeInsets.symmetric(
